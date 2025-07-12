@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dream Date Simulator 💑</title>
+<style>
+body {
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(to bottom, #fff0f5, #ffe4ec);
+text-align: center;
+padding: 2em;
+color: #d81b60;
+overflow-x: hidden;
+}
+h1 {
+font-size: 2.5em;
+margin-bottom: 20px;
+animation: fadeIn 2s ease-in-out;
+}
+.option-btn {
+padding: 15px 30px;
+font-size: 1.2em;
+margin: 10px;
+border: none;
+border-radius: 10px;
+background-color: #f06292;
+color: white;
+cursor: pointer;
+transition: transform 0.2s ease, background-color 0.3s;
+animation: popIn 0.5s ease forwards;
+}
+.option-btn:hover {
+background-color: #ec407a;
+transform: scale(1.05);
+}
+#output {
+margin-top: 40px;
+padding: 20px;
+background: #fff0f5;
+border-radius: 15px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+opacity: 0;
+transform: translateY(20px);
+animation: fadeInUp 1s forwards;
+}
+#output img {
+max-width: 100%;
+height: auto;
+border-radius: 10px;
+margin-top: 20px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.character {
+max-width: 150px;
+margin: 20px;
+}
+@keyframes fadeInUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+@keyframes popIn {
+from {
+transform: scale(0.8);
+opacity: 0;
+}
+to {
+transform: scale(1);
+opacity: 1;
+}
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+</style>
+</head>
+<body>
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3"
+type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<h1>Choose Our Dream Date 💖</h1>
+<button class="option-btn" onclick="showDate('movie')">🎬 Movie Night</button>
+<button class="option-btn" onclick="showDate('beach')">🌊 Beach Walk</button>
+<button class="option-btn" onclick="showDate('stargaze')">🌌 Stargazing</button>
+<button class="option-btn" onclick="showDate('cafe')">☕ Cute Cafe Date</button>
+<button class="option-btn" onclick="showDate('rain')">🌧 Dancing in Rain</button>
+<div id="output"></div>
+<script>
+function showDate(type) {
+let content = "";
+
+if (type === "movie") {
+content = `
+<div id="scene">
+
+<h2>🎬 Cozy Movie Night</h2>
+<p>We cuddle up with snacks, your favorite blanket, and a cheesy romantic film. also I steal
+kisses between popcorn bites you know i want them also. 🍿💋</p>
+<img src="https://i.imgur.com/XGZtQKR.jpg" alt="Movie night">
+</div>`;
+} else if (type === "beach") {
+content = `
+<div id="scene">
+
+<h2>🌊 Sunset Beach Walk</h2>
+<p>We walk barefoot, held hands, as the sun sets into the sea. I write your name in
+the sand and tell you some peepy things that spices up. 🌅</p>
+<img src="https://i.imgur.com/4Ugb7sz.jpg" alt="Beach">
+</div>`;
+} else if (type === "stargaze") {
+content = `
+<div id="scene">
+
+<h2>🌌 Stargazing Night</h2>
+<p>Laying under a blanket of stars, I whisper stories of us becoming constellations. You
+smile, and the sky glows brighter. ✨</p>
+<img src="https://i.imgur.com/6xj4NBS.jpg" alt="Stargazing">
+</div>`;
+} else if (type === "cafe") {
+content = `
+<div id="scene">
+
+<h2>☕ Cafe & Conversations</h2>
+<p>We sip on warm drinks while talking about everything and nothing. You laugh at my
+dumb jokes. I fall for you a little more. </p>
+<img src="https://i.imgur.com/CZgeDd8.jpg" alt="Cafe date">
+</div>`;
+} else if (type === "rain") {
+content = `
+<div id="scene">
+${male}${female}
+<h2>🌧 Dancing in the Rain</h2>
+<p>The world fades away as we spin barefoot in the rain. I hold your face and kiss you
+like we're in a movie scene. 💞</p>
+<img src="https://i.imgur.com/fP7QjOl.jpg" alt="Rain date">
+</div>`;
+}
+const output = document.getElementById('output');
+output.style.opacity = 0;
+setTimeout(() => {
+output.innerHTML = content;
+output.style.animation = 'fadeInUp 1s forwards';
+}, 300);
+}
+</script>
+</body>
+</html>
